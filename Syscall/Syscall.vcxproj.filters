@@ -121,7 +121,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="syscall.c">
+    <ClCompile Include="main.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

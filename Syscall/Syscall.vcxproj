@@ -118,11 +118,23 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <BasicRuntimeChecks>StackFrameRuntimeCheck</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)SysCall\phnt</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>ntdllp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <ShowProgress>LinkVerbose</ShowProgress>
+      <EntryPointSymbol>ThisIsNotAnEntryPoint </EntryPointSymbol>
     </Link>
+    <MASM>
+      <MakeAllSymbolsPublic>true</MakeAllSymbolsPublic>
+      <CallingConvention>1</CallingConvention>
+      <ErrorReporting>3</ErrorReporting>
+    </MASM>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -149,6 +161,7 @@
       <MakeAllSymbolsPublic>true</MakeAllSymbolsPublic>
       <CallingConvention>1</CallingConvention>
       <ErrorReporting>3</ErrorReporting>
+      <ObjectFileName>$(IntDir)%(FileName).obj</ObjectFileName>
     </MASM>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -190,7 +203,7 @@
     <ClInclude Include="syscall.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="syscall.c" />
+    <ClCompile Include="main.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
